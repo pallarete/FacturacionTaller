@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FacturaTallerMVC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fec79a8f14aa1d0f98b1046fc03d5d2c2fe90de3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9756b1d3358100761998fedd1ff29769e6e6440b")]
 [assembly: System.Reflection.AssemblyProductAttribute("FacturaTallerMVC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FacturaTallerMVC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
