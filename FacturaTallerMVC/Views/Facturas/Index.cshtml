@@ -1,0 +1,59 @@
+@model IEnumerable<FacturaTallerMVC.Models.Factura>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Unidades)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pvp)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Neto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trabajo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Unidades)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pvp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Neto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Trabajo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
