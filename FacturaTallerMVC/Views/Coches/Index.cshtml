@@ -24,6 +24,12 @@
             <th>
                 @Html.DisplayNameFor(model => model.Kilometros)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Matricula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,9 +49,15 @@
                 @Html.DisplayFor(modelItem => item.Kilometros)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdMatricula">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdMatricula">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdMatricula">Delete</a>
+                @Html.DisplayFor(modelItem => item.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.IdCliente)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdCoche">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdCoche">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdCoche">Delete</a>
             </td>
         </tr>
 }

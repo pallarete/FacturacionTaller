@@ -1,6 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace FacturaTallerMVC.Models
 {
@@ -8,12 +6,11 @@ namespace FacturaTallerMVC.Models
     {
         [Key]
         public int IdCliente { get; set; }
-        
-        //Referencio al coche
-        [ForeignKey ("IdMatricula")]
-        public List<Coche>? Matricula { get; set;}
 
         public required string Nombre { get; set; } 
         public required string Apellidos { get; set; } 
+
+        // Propiedad de navegación: una lista de coches que pertenecen a este cliente
+        public List<Coche>? Coches { get; set; } 
     }
 }

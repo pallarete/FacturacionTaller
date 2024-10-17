@@ -22,7 +22,8 @@ namespace FacturaTallerMVC.Controllers
         // GET: Facturas
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Facturas.ToListAsync());
+            var dataContext = _context.Facturas.Include(f => f.Cliente).Include(f => f.Coche).Include(f => f.Recambio);
+            return View(await dataContext.ToListAsync());
         }
 
         // GET: Facturas/Details/5
@@ -34,6 +35,9 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var factura = await _context.Facturas
+                .Include(f => f.Cliente)
+                .Include(f => f.Coche)
+                .Include(f => f.Recambio)
                 .FirstOrDefaultAsync(m => m.IdFactura == id);
             if (factura == null)
             {
@@ -46,6 +50,9 @@ namespace FacturaTallerMVC.Controllers
         // GET: Facturas/Create
         public IActionResult Create()
         {
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula");
+            ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio");
             return View();
         }
 
@@ -54,7 +61,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdFactura,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
+        public async Task<IActionResult> Create([Bind("IdFactura,ClienteId,CocheId,RecambioId,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +69,9 @@ namespace FacturaTallerMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.ClienteId);
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula", factura.CocheId);
+            ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio", factura.RecambioId);
             return View(factura);
         }
 
@@ -78,6 +88,9 @@ namespace FacturaTallerMVC.Controllers
             {
                 return NotFound();
             }
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.ClienteId);
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula", factura.CocheId);
+            ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio", factura.RecambioId);
             return View(factura);
         }
 
@@ -86,7 +99,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,ClienteId,CocheId,RecambioId,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
         {
             if (id != factura.IdFactura)
             {
@@ -113,6 +126,9 @@ namespace FacturaTallerMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.ClienteId);
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula", factura.CocheId);
+            ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio", factura.RecambioId);
             return View(factura);
         }
 
@@ -125,6 +141,9 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var factura = await _context.Facturas
+                .Include(f => f.Cliente)
+                .Include(f => f.Coche)
+                .Include(f => f.Recambio)
                 .FirstOrDefaultAsync(m => m.IdFactura == id);
             if (factura == null)
             {

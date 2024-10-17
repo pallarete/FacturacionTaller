@@ -22,7 +22,8 @@ namespace FacturaTallerMVC.Controllers
         // GET: Coches
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Coches.ToListAsync());
+            var dataContext = _context.Coches.Include(c => c.Cliente);
+            return View(await dataContext.ToListAsync());
         }
 
         // GET: Coches/Details/5
@@ -34,7 +35,8 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var coche = await _context.Coches
-                .FirstOrDefaultAsync(m => m.IdMatricula == id);
+                .Include(c => c.Cliente)
+                .FirstOrDefaultAsync(m => m.IdCoche == id);
             if (coche == null)
             {
                 return NotFound();
@@ -46,6 +48,7 @@ namespace FacturaTallerMVC.Controllers
         // GET: Coches/Create
         public IActionResult Create()
         {
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdMatricula,Marca,Modelo,Combustible,Kilometros")] Coche coche)
+        public async Task<IActionResult> Create([Bind("IdCoche,Marca,Modelo,Combustible,Kilometros,Matricula,ClienteId")] Coche coche)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace FacturaTallerMVC.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", coche.ClienteId);
             return View(coche);
         }
 
@@ -78,6 +82,7 @@ namespace FacturaTallerMVC.Controllers
             {
                 return NotFound();
             }
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", coche.ClienteId);
             return View(coche);
         }
 
@@ -86,9 +91,9 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdMatricula,Marca,Modelo,Combustible,Kilometros")] Coche coche)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCoche,Marca,Modelo,Combustible,Kilometros,Matricula,ClienteId")] Coche coche)
         {
-            if (id != coche.IdMatricula)
+            if (id != coche.IdCoche)
             {
                 return NotFound();
             }
@@ -102,7 +107,7 @@ namespace FacturaTallerMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CocheExists(coche.IdMatricula))
+                    if (!CocheExists(coche.IdCoche))
                     {
                         return NotFound();
                     }
@@ -113,6 +118,7 @@ namespace FacturaTallerMVC.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", coche.ClienteId);
             return View(coche);
         }
 
@@ -125,7 +131,8 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var coche = await _context.Coches
-                .FirstOrDefaultAsync(m => m.IdMatricula == id);
+                .Include(c => c.Cliente)
+                .FirstOrDefaultAsync(m => m.IdCoche == id);
             if (coche == null)
             {
                 return NotFound();
@@ -151,7 +158,7 @@ namespace FacturaTallerMVC.Controllers
 
         private bool CocheExists(int id)
         {
-            return _context.Coches.Any(e => e.IdMatricula == id);
+            return _context.Coches.Any(e => e.IdCoche == id);
         }
     }
 }

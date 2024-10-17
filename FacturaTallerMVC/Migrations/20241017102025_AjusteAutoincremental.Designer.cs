@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FacturaTallerMVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241017082319_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241017102025_AjusteAutoincremental")]
+    partial class AjusteAutoincremental
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,6 +23,7 @@ namespace FacturaTallerMVC.Migrations
             modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
                 {
                     b.Property<int>("IdCliente")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Apellidos")
@@ -40,7 +41,8 @@ namespace FacturaTallerMVC.Migrations
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Coche", b =>
                 {
-                    b.Property<int>("IdMatricula")
+                    b.Property<int>("IdCoche")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Combustible")
@@ -58,7 +60,7 @@ namespace FacturaTallerMVC.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("IdMatricula");
+                    b.HasKey("IdCoche");
 
                     b.ToTable("Coches");
                 });
@@ -98,6 +100,7 @@ namespace FacturaTallerMVC.Migrations
             modelBuilder.Entity("FacturaTallerMVC.Models.Recambio", b =>
                 {
                     b.Property<int>("IdRecambio")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
@@ -129,13 +132,13 @@ namespace FacturaTallerMVC.Migrations
                 {
                     b.HasOne("FacturaTallerMVC.Models.Cliente", null)
                         .WithMany("Matricula")
-                        .HasForeignKey("IdMatricula")
+                        .HasForeignKey("IdCoche")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("FacturaTallerMVC.Models.Factura", null)
                         .WithMany("Matricula")
-                        .HasForeignKey("IdMatricula")
+                        .HasForeignKey("IdCoche")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

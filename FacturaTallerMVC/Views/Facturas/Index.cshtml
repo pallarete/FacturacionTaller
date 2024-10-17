@@ -13,6 +13,15 @@
     <thead>
         <tr>
             <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coche)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Recambio)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.UnidadesRecambio)
             </th>
             <th>
@@ -39,6 +48,15 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.IdCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coche.Matricula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Recambio.IdRecambio)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.UnidadesRecambio)
             </td>
@@ -69,3 +87,4 @@
 }
     </tbody>
 </table>
+

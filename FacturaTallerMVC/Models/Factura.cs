@@ -8,31 +8,32 @@ namespace FacturaTallerMVC.Models
         [Key]
         public int IdFactura { get; set; }
 
-        //Llaves Foraneas
-        [ForeignKey("IdCliente")]
-        public List<Cliente>? Cliente { get; set; }
+        // Llaves Foráneas
+        public int? ClienteId { get; set; } // Llave foránea
+        [ForeignKey("ClienteId")]
+        public Cliente? Cliente { get; set; } // Navegación
 
-        [ForeignKey("IdMatricula")]
-        public List<Coche>? Matricula  { get; set; }
+        public int? CocheId { get; set; } // Llave foránea
+        [ForeignKey("CocheId")]
+        public Coche? Coche { get; set; } // Navegación
 
-        [ForeignKey("IdRecambio")]
-        public List<Recambio>? Recambio { get; set; }
+        public int? RecambioId { get; set; } // Llave foránea
+        [ForeignKey("RecambioId")]
+        public Recambio? Recambio { get; set; } // Navegación
 
-        //Recambios en la factura
+        // Recambios en la factura
         public int? UnidadesRecambio { get; set; }
-
         public int? TotalRecambio { get; set; }
 
-        //Trabajos en la factura
+        // Trabajos en la factura
         public string? Trabajo { get; set; }
-
         public int? UnidadesTrabajo { get; set; }
         public int? TotalTrabajo { get; set; }
 
-        //Total de La factura
+        // Total de La factura
         public int Pvp { get; set; }
 
-        //Fecha de la factura
+        // Fecha de la factura
         public DateTime Fecha { get; set; }
     }
 }

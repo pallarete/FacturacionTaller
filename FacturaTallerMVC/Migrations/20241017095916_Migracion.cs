@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FacturaTallerMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Migracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -73,7 +73,7 @@ namespace FacturaTallerMVC.Migrations
                 name: "Coches",
                 columns: table => new
                 {
-                    IdMatricula = table.Column<int>(type: "INTEGER", nullable: false),
+                    IdCoche = table.Column<int>(type: "INTEGER", nullable: false),
                     Marca = table.Column<string>(type: "TEXT", nullable: false),
                     Modelo = table.Column<string>(type: "TEXT", nullable: false),
                     Combustible = table.Column<string>(type: "TEXT", nullable: false),
@@ -81,16 +81,16 @@ namespace FacturaTallerMVC.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Coches", x => x.IdMatricula);
+                    table.PrimaryKey("PK_Coches", x => x.IdCoche);
                     table.ForeignKey(
-                        name: "FK_Coches_Clientes_IdMatricula",
-                        column: x => x.IdMatricula,
+                        name: "FK_Coches_Clientes_IdCoche",
+                        column: x => x.IdCoche,
                         principalTable: "Clientes",
                         principalColumn: "IdCliente",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Coches_Facturas_IdMatricula",
-                        column: x => x.IdMatricula,
+                        name: "FK_Coches_Facturas_IdCoche",
+                        column: x => x.IdCoche,
                         principalTable: "Facturas",
                         principalColumn: "IdFactura",
                         onDelete: ReferentialAction.Cascade);

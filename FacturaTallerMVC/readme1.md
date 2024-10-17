@@ -55,7 +55,8 @@ dotnet aspnet-codegenerator controller -name RecambiosController -m Recambio -dc
   --useDefaultLayout : le decimos que layouts (Diseños usar)
   --referenceScriptLibraries: Le decimos las scripts que queremos que referencie (validaciones y demas).
 
-  17. Con ViewData[nombre] desde el controlador ! le pasamos datos visibles a la vista que tendra que invocarlos con ViewBag.(el tipo de dato de antesw)
+  17. Con ViewData[nombre] desde el controlador ! le pasamos datos visibles a la vista que tendra que invocarlos con ViewBag.(el tipo de dato de antesw).
+  18. Para borrar una base de datos: rm FacturaTallerMVCDB.db  
 
 
  

@@ -3,6 +3,7 @@ using System;
 using FacturaTallerMVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FacturaTallerMVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20241017140001_MigracionResetA")]
+    partial class MigracionResetA
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.10");
@@ -81,11 +84,11 @@ namespace FacturaTallerMVC.Migrations
                     b.Property<int?>("ClienteId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("CocheId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
+
+                    b.Property<int?>("MatriculaId")
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Pvp")
                         .HasColumnType("INTEGER");
@@ -112,7 +115,7 @@ namespace FacturaTallerMVC.Migrations
 
                     b.HasIndex("ClienteId");
 
-                    b.HasIndex("CocheId");
+                    b.HasIndex("MatriculaId");
 
                     b.HasIndex("RecambioId");
 
@@ -156,9 +159,9 @@ namespace FacturaTallerMVC.Migrations
                         .WithMany()
                         .HasForeignKey("ClienteId");
 
-                    b.HasOne("FacturaTallerMVC.Models.Coche", "Coche")
+                    b.HasOne("FacturaTallerMVC.Models.Coche", "Matricula")
                         .WithMany()
-                        .HasForeignKey("CocheId");
+                        .HasForeignKey("MatriculaId");
 
                     b.HasOne("FacturaTallerMVC.Models.Recambio", "Recambio")
                         .WithMany("Facturas")
@@ -166,7 +169,7 @@ namespace FacturaTallerMVC.Migrations
 
                     b.Navigation("Cliente");
 
-                    b.Navigation("Coche");
+                    b.Navigation("Matricula");
 
                     b.Navigation("Recambio");
                 });
