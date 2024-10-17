@@ -34,7 +34,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Apellidos")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("IdCliente,Nombre,Apellidos")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Apellidos")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCliente,Nombre,Apellidos")] Cliente cliente)
         {
-            if (id != cliente.Id)
+            if (id != cliente.IdCliente)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace FacturaTallerMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClienteExists(cliente.Id))
+                    if (!ClienteExists(cliente.IdCliente))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var cliente = await _context.Clientes
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdCliente == id);
             if (cliente == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace FacturaTallerMVC.Controllers
 
         private bool ClienteExists(int id)
         {
-            return _context.Clientes.Any(e => e.Id == id);
+            return _context.Clientes.Any(e => e.IdCliente == id);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var factura = await _context.Facturas
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdFactura == id);
             if (factura == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Unidades,Pvp,Neto,Trabajo,Fecha")] Factura factura)
+        public async Task<IActionResult> Create([Bind("IdFactura,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Unidades,Pvp,Neto,Trabajo,Fecha")] Factura factura)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
         {
-            if (id != factura.Id)
+            if (id != factura.IdFactura)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace FacturaTallerMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FacturaExists(factura.Id))
+                    if (!FacturaExists(factura.IdFactura))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var factura = await _context.Facturas
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdFactura == id);
             if (factura == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace FacturaTallerMVC.Controllers
 
         private bool FacturaExists(int id)
         {
-            return _context.Facturas.Any(e => e.Id == id);
+            return _context.Facturas.Any(e => e.IdFactura == id);
         }
     }
 }

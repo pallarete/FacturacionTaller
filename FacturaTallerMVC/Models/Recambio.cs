@@ -1,11 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace FacturaTallerMVC.Models
 {
     public class Recambio
     {
-        public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public int Precio { get; set; }
+        [Key]
+        public int IdRecambio { get; set; } 
+        public required string Nombre { get; set; }
+        public required string Descripcion { get; set; }
+        public required int Precio { get; set; }
 
     }
 }

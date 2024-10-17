@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FacturaTallerMVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241016135419_InitialCreate")]
+    [Migration("20241017082319_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -22,43 +22,30 @@ namespace FacturaTallerMVC.Migrations
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("IdCliente")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Apellidos")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("FacturaId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("FacturaId");
+                    b.HasKey("IdCliente");
 
                     b.ToTable("Clientes");
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Coche", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("ClienteId")
+                    b.Property<int>("IdMatricula")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Combustible")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("FacturaId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Kilometros")
                         .HasColumnType("INTEGER");
@@ -67,61 +54,55 @@ namespace FacturaTallerMVC.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Matricula")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("Modelo")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClienteId");
-
-                    b.HasIndex("FacturaId");
+                    b.HasKey("IdMatricula");
 
                     b.ToTable("Coches");
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Factura", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("IdFactura")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateOnly>("Fecha")
+                    b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
-
-                    b.Property<float>("Neto")
-                        .HasColumnType("REAL");
 
                     b.Property<int>("Pvp")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Trabajo")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Unidades")
+                    b.Property<int?>("TotalRecambio")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("TotalTrabajo")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Trabajo")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int?>("UnidadesRecambio")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UnidadesTrabajo")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("IdFactura");
 
                     b.ToTable("Facturas");
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Recambio", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("IdRecambio")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("FacturaId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
@@ -130,9 +111,7 @@ namespace FacturaTallerMVC.Migrations
                     b.Property<int>("Precio")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("FacturaId");
+                    b.HasKey("IdRecambio");
 
                     b.ToTable("Recambios");
                 });
@@ -140,40 +119,48 @@ namespace FacturaTallerMVC.Migrations
             modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
                 {
                     b.HasOne("FacturaTallerMVC.Models.Factura", null)
-                        .WithMany("Clientes")
-                        .HasForeignKey("FacturaId");
+                        .WithMany("Cliente")
+                        .HasForeignKey("IdCliente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Coche", b =>
                 {
                     b.HasOne("FacturaTallerMVC.Models.Cliente", null)
-                        .WithMany("Coches")
-                        .HasForeignKey("ClienteId");
+                        .WithMany("Matricula")
+                        .HasForeignKey("IdMatricula")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FacturaTallerMVC.Models.Factura", null)
-                        .WithMany("Coches")
-                        .HasForeignKey("FacturaId");
+                        .WithMany("Matricula")
+                        .HasForeignKey("IdMatricula")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Recambio", b =>
                 {
                     b.HasOne("FacturaTallerMVC.Models.Factura", null)
-                        .WithMany("Recambios")
-                        .HasForeignKey("FacturaId");
+                        .WithMany("Recambio")
+                        .HasForeignKey("IdRecambio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
                 {
-                    b.Navigation("Coches");
+                    b.Navigation("Matricula");
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Factura", b =>
                 {
-                    b.Navigation("Clientes");
+                    b.Navigation("Cliente");
 
-                    b.Navigation("Coches");
+                    b.Navigation("Matricula");
 
-                    b.Navigation("Recambios");
+                    b.Navigation("Recambio");
                 });
 #pragma warning restore 612, 618
         }

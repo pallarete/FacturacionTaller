@@ -34,7 +34,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var coche = await _context.Coches
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdMatricula == id);
             if (coche == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Matricula,Marca,Modelo,Combustible,Kilometros")] Coche coche)
+        public async Task<IActionResult> Create([Bind("IdMatricula,Marca,Modelo,Combustible,Kilometros")] Coche coche)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Matricula,Marca,Modelo,Combustible,Kilometros")] Coche coche)
+        public async Task<IActionResult> Edit(int id, [Bind("IdMatricula,Marca,Modelo,Combustible,Kilometros")] Coche coche)
         {
-            if (id != coche.Id)
+            if (id != coche.IdMatricula)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace FacturaTallerMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CocheExists(coche.Id))
+                    if (!CocheExists(coche.IdMatricula))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var coche = await _context.Coches
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdMatricula == id);
             if (coche == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace FacturaTallerMVC.Controllers
 
         private bool CocheExists(int id)
         {
-            return _context.Coches.Any(e => e.Id == id);
+            return _context.Coches.Any(e => e.IdMatricula == id);
         }
     }
 }

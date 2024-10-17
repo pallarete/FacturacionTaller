@@ -34,7 +34,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var recambio = await _context.Recambios
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdRecambio == id);
             if (recambio == null)
             {
                 return NotFound();
@@ -54,7 +54,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Descripcion,Precio")] Recambio recambio)
+        public async Task<IActionResult> Create([Bind("IdRecambio,Nombre,Descripcion,Precio")] Recambio recambio)
         {
             if (ModelState.IsValid)
             {
@@ -86,9 +86,9 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Descripcion,Precio")] Recambio recambio)
+        public async Task<IActionResult> Edit(int id, [Bind("IdRecambio,Nombre,Descripcion,Precio")] Recambio recambio)
         {
-            if (id != recambio.Id)
+            if (id != recambio.IdRecambio)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace FacturaTallerMVC.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RecambioExists(recambio.Id))
+                    if (!RecambioExists(recambio.IdRecambio))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace FacturaTallerMVC.Controllers
             }
 
             var recambio = await _context.Recambios
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.IdRecambio == id);
             if (recambio == null)
             {
                 return NotFound();
@@ -151,7 +151,7 @@ namespace FacturaTallerMVC.Controllers
 
         private bool RecambioExists(int id)
         {
-            return _context.Recambios.Any(e => e.Id == id);
+            return _context.Recambios.Any(e => e.IdRecambio == id);
         }
     }
 }

@@ -4,13 +4,12 @@ namespace FacturaTallerMVC.Models
 {
     public class Coche
     {
-        
-        public int Id { get; set; }
-        public int Matricula { get; set; }
-        public string Marca { get; set; } =string.Empty;
-        public string Modelo { get; set; } =string.Empty;
-        public string Combustible { get; set; } =string.Empty;
-        public int Kilometros { get; set; }
+        [Key]
+        public int IdMatricula { get; set; }
+        public required string Marca { get; set; } 
+        public required string Modelo { get; set; } 
+        public required string Combustible { get; set; } 
+        public required int Kilometros { get; set; }
 
         
     }
