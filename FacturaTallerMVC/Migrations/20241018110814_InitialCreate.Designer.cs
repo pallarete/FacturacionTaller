@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FacturaTallerMVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241017102025_AjusteAutoincremental")]
-    partial class AjusteAutoincremental
+    [Migration("20241018110814_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,6 +45,9 @@ namespace FacturaTallerMVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Combustible")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -56,11 +59,18 @@ namespace FacturaTallerMVC.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Matricula")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Modelo")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("IdCoche");
+
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Coches");
                 });
@@ -71,10 +81,19 @@ namespace FacturaTallerMVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("ClienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("CocheId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Pvp")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("RecambioId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("TotalRecambio")
@@ -94,6 +113,12 @@ namespace FacturaTallerMVC.Migrations
 
                     b.HasKey("IdFactura");
 
+                    b.HasIndex("ClienteId");
+
+                    b.HasIndex("CocheId");
+
+                    b.HasIndex("RecambioId");
+
                     b.ToTable("Facturas");
                 });
 
@@ -111,59 +136,52 @@ namespace FacturaTallerMVC.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Precio")
-                        .HasColumnType("INTEGER");
+                    b.Property<decimal>("Precio")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("IdRecambio");
 
                     b.ToTable("Recambios");
                 });
 
-            modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
-                {
-                    b.HasOne("FacturaTallerMVC.Models.Factura", null)
-                        .WithMany("Cliente")
-                        .HasForeignKey("IdCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("FacturaTallerMVC.Models.Coche", b =>
                 {
-                    b.HasOne("FacturaTallerMVC.Models.Cliente", null)
-                        .WithMany("Matricula")
-                        .HasForeignKey("IdCoche")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("FacturaTallerMVC.Models.Cliente", "Cliente")
+                        .WithMany("Coches")
+                        .HasForeignKey("ClienteId");
 
-                    b.HasOne("FacturaTallerMVC.Models.Factura", null)
-                        .WithMany("Matricula")
-                        .HasForeignKey("IdCoche")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FacturaTallerMVC.Models.Recambio", b =>
-                {
-                    b.HasOne("FacturaTallerMVC.Models.Factura", null)
-                        .WithMany("Recambio")
-                        .HasForeignKey("IdRecambio")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
-                {
-                    b.Navigation("Matricula");
+                    b.Navigation("Cliente");
                 });
 
             modelBuilder.Entity("FacturaTallerMVC.Models.Factura", b =>
                 {
+                    b.HasOne("FacturaTallerMVC.Models.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteId");
+
+                    b.HasOne("FacturaTallerMVC.Models.Coche", "Coche")
+                        .WithMany()
+                        .HasForeignKey("CocheId");
+
+                    b.HasOne("FacturaTallerMVC.Models.Recambio", "Recambio")
+                        .WithMany("Facturas")
+                        .HasForeignKey("RecambioId");
+
                     b.Navigation("Cliente");
 
-                    b.Navigation("Matricula");
+                    b.Navigation("Coche");
 
                     b.Navigation("Recambio");
+                });
+
+            modelBuilder.Entity("FacturaTallerMVC.Models.Cliente", b =>
+                {
+                    b.Navigation("Coches");
+                });
+
+            modelBuilder.Entity("FacturaTallerMVC.Models.Recambio", b =>
+                {
+                    b.Navigation("Facturas");
                 });
 #pragma warning restore 612, 618
         }

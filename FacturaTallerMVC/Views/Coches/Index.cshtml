@@ -28,7 +28,9 @@
                 @Html.DisplayNameFor(model => model.Matricula)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Cliente)
+                @Html.DisplayNameFor(model => model.Cliente.Nombre)
+            </th><th>
+                @Html.DisplayNameFor(model => model.Cliente.Apellidos)
             </th>
             <th></th>
         </tr>
@@ -52,7 +54,10 @@
                 @Html.DisplayFor(modelItem => item.Matricula)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Cliente.IdCliente)
+                @Html.DisplayFor(modelItem => item.Cliente.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.Apellidos)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdCoche">Edit</a> |

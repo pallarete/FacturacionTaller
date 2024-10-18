@@ -48,7 +48,13 @@ namespace FacturaTallerMVC.Controllers
         // GET: Coches/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
+            ViewData["NombreCliente"] = new SelectList(
+                _context.Clientes.Select(c => new
+                {
+                    ClienteId = c.IdCliente,
+                    NombreCompleto = $"{c.Nombre}   {c.Apellidos}"
+                }),
+                "ClienteId", "NombreCompleto");
             return View();
         }
 
