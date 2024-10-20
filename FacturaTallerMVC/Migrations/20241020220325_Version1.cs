@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FacturaTallerMVC.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Version1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -46,12 +46,12 @@ namespace FacturaTallerMVC.Migrations
                 {
                     IdCoche = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Matricula = table.Column<string>(type: "TEXT", nullable: false),
                     Marca = table.Column<string>(type: "TEXT", nullable: false),
                     Modelo = table.Column<string>(type: "TEXT", nullable: false),
-                    Combustible = table.Column<string>(type: "TEXT", nullable: false),
                     Kilometros = table.Column<int>(type: "INTEGER", nullable: false),
-                    Matricula = table.Column<string>(type: "TEXT", maxLength: 10, nullable: false),
-                    ClienteId = table.Column<int>(type: "INTEGER", nullable: true)
+                    AñoFabricacion = table.Column<int>(type: "INTEGER", nullable: false),
+                    ClienteId = table.Column<int>(type: "INTEGER", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -60,7 +60,8 @@ namespace FacturaTallerMVC.Migrations
                         name: "FK_Coches_Clientes_ClienteId",
                         column: x => x.ClienteId,
                         principalTable: "Clientes",
-                        principalColumn: "IdCliente");
+                        principalColumn: "IdCliente",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -72,11 +73,11 @@ namespace FacturaTallerMVC.Migrations
                     ClienteId = table.Column<int>(type: "INTEGER", nullable: true),
                     CocheId = table.Column<int>(type: "INTEGER", nullable: true),
                     RecambioId = table.Column<int>(type: "INTEGER", nullable: true),
-                    UnidadesRecambio = table.Column<int>(type: "INTEGER", nullable: true),
-                    TotalRecambio = table.Column<int>(type: "INTEGER", nullable: true),
-                    Trabajo = table.Column<string>(type: "TEXT", nullable: true),
-                    UnidadesTrabajo = table.Column<int>(type: "INTEGER", nullable: true),
-                    TotalTrabajo = table.Column<int>(type: "INTEGER", nullable: true),
+                    Piezas = table.Column<int>(type: "INTEGER", nullable: true),
+                    TotalPiezas = table.Column<int>(type: "INTEGER", nullable: true),
+                    Trabajos = table.Column<string>(type: "TEXT", nullable: true),
+                    HorasTaller = table.Column<int>(type: "INTEGER", nullable: true),
+                    TotalHoras = table.Column<int>(type: "INTEGER", nullable: true),
                     Pvp = table.Column<int>(type: "INTEGER", nullable: false),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },

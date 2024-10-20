@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FacturaTallerMVC.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241018110814_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241020220822_Version2")]
+    partial class Version2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -45,12 +45,13 @@ namespace FacturaTallerMVC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ClienteId")
+                    b.Property<int>("AñoFabricacion")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Combustible")
+                    b.Property<int?>("ClienteId")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasMaxLength(10)
+                        .HasColumnType("INTEGER");
 
                     b.Property<int>("Kilometros")
                         .HasColumnType("INTEGER");
@@ -61,7 +62,6 @@ namespace FacturaTallerMVC.Migrations
 
                     b.Property<string>("Matricula")
                         .IsRequired()
-                        .HasMaxLength(10)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Modelo")
@@ -90,26 +90,26 @@ namespace FacturaTallerMVC.Migrations
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("HorasTaller")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Piezas")
+                        .HasColumnType("INTEGER");
+
                     b.Property<int>("Pvp")
                         .HasColumnType("INTEGER");
 
                     b.Property<int?>("RecambioId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("TotalRecambio")
+                    b.Property<int?>("TotalHoras")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("TotalTrabajo")
+                    b.Property<int?>("TotalPiezas")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Trabajo")
+                    b.Property<string>("Trabajos")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("UnidadesRecambio")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int?>("UnidadesTrabajo")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("IdFactura");
 
@@ -148,7 +148,9 @@ namespace FacturaTallerMVC.Migrations
                 {
                     b.HasOne("FacturaTallerMVC.Models.Cliente", "Cliente")
                         .WithMany("Coches")
-                        .HasForeignKey("ClienteId");
+                        .HasForeignKey("ClienteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Cliente");
                 });

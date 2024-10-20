@@ -48,13 +48,7 @@ namespace FacturaTallerMVC.Controllers
         // GET: Coches/Create
         public IActionResult Create()
         {
-            ViewData["NombreCliente"] = new SelectList(
-                _context.Clientes.Select(c => new
-                {
-                    ClienteId = c.IdCliente,
-                    NombreCompleto = $"{c.Nombre}   {c.Apellidos}"
-                }),
-                "ClienteId", "NombreCompleto");
+            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
             return View();
         }
 
@@ -63,7 +57,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCoche,Marca,Modelo,Combustible,Kilometros,Matricula,ClienteId")] Coche coche)
+        public async Task<IActionResult> Create([Bind("IdCoche,Matricula,Marca,Modelo,Kilometros,AñoFabricacion,ClienteId")] Coche coche)
         {
             if (ModelState.IsValid)
             {
@@ -97,7 +91,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCoche,Marca,Modelo,Combustible,Kilometros,Matricula,ClienteId")] Coche coche)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCoche,Matricula,Marca,Modelo,Kilometros,AñoFabricacion,ClienteId")] Coche coche)
         {
             if (id != coche.IdCoche)
             {

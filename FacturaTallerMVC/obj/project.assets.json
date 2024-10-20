@@ -8031,23 +8031,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\avazquez\\.nuget\\packages\\": {},
+    "C:\\Users\\palla\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\avazquez\\Desktop\\FacturacionTaller\\FacturacionTaller-1\\FacturaTallerMVC\\FacturaTallerMVC.csproj",
+      "projectUniqueName": "C:\\Users\\palla\\FacturacionTaller\\FacturacionTaller\\FacturaTallerMVC\\FacturaTallerMVC.csproj",
       "projectName": "FacturaTallerMVC",
-      "projectPath": "C:\\Users\\avazquez\\Desktop\\FacturacionTaller\\FacturacionTaller-1\\FacturaTallerMVC\\FacturaTallerMVC.csproj",
-      "packagesPath": "C:\\Users\\avazquez\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\avazquez\\Desktop\\FacturacionTaller\\FacturacionTaller-1\\FacturaTallerMVC\\obj\\",
+      "projectPath": "C:\\Users\\palla\\FacturacionTaller\\FacturacionTaller\\FacturaTallerMVC\\FacturaTallerMVC.csproj",
+      "packagesPath": "C:\\Users\\palla\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\palla\\FacturacionTaller\\FacturacionTaller\\FacturaTallerMVC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\avazquez\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\palla\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

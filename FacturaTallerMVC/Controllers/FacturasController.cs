@@ -51,7 +51,7 @@ namespace FacturaTallerMVC.Controllers
         public IActionResult Create()
         {
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
-            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula");
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Marca");
             ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio");
             return View();
         }
@@ -61,7 +61,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdFactura,ClienteId,CocheId,RecambioId,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
+        public async Task<IActionResult> Create([Bind("IdFactura,ClienteId,CocheId,RecambioId,Piezas,TotalPiezas,Trabajos,HorasTaller,TotalHoras,Pvp,Fecha")] Factura factura)
         {
             if (ModelState.IsValid)
             {
@@ -70,7 +70,7 @@ namespace FacturaTallerMVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.ClienteId);
-            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula", factura.CocheId);
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Marca", factura.CocheId);
             ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio", factura.RecambioId);
             return View(factura);
         }
@@ -89,7 +89,7 @@ namespace FacturaTallerMVC.Controllers
                 return NotFound();
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.ClienteId);
-            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula", factura.CocheId);
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Marca", factura.CocheId);
             ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio", factura.RecambioId);
             return View(factura);
         }
@@ -99,7 +99,7 @@ namespace FacturaTallerMVC.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,ClienteId,CocheId,RecambioId,UnidadesRecambio,TotalRecambio,Trabajo,UnidadesTrabajo,TotalTrabajo,Pvp,Fecha")] Factura factura)
+        public async Task<IActionResult> Edit(int id, [Bind("IdFactura,ClienteId,CocheId,RecambioId,Piezas,TotalPiezas,Trabajos,HorasTaller,TotalHoras,Pvp,Fecha")] Factura factura)
         {
             if (id != factura.IdFactura)
             {
@@ -127,7 +127,7 @@ namespace FacturaTallerMVC.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente", factura.ClienteId);
-            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula", factura.CocheId);
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Marca", factura.CocheId);
             ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio", factura.RecambioId);
             return View(factura);
         }

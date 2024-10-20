@@ -22,13 +22,13 @@ namespace FacturaTallerMVC.Models
         public Recambio? Recambio { get; set; } // Navegación
 
         // Recambios en la factura
-        public int? UnidadesRecambio { get; set; }
-        public int? TotalRecambio { get; set; }
+        public int? Piezas { get; set; }
+        public int? TotalPiezas { get; set; }
 
         // Trabajos en la factura
-        public string? Trabajo { get; set; }
-        public int? UnidadesTrabajo { get; set; }
-        public int? TotalTrabajo { get; set; }
+        public string? Trabajos { get; set; }
+        public int? HorasTaller { get; set; }
+        public int? TotalHoras { get; set; }
 
         // Total de La factura
         public int Pvp { get; set; }

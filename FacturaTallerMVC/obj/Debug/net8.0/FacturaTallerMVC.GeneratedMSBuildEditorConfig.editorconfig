@@ -17,119 +17,119 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = FacturaTallerMVC
 build_property.RootNamespace = FacturaTallerMVC
-build_property.ProjectDir = C:\Users\avazquez\Desktop\FacturacionTaller\FacturacionTaller-1\FacturaTallerMVC\
+build_property.ProjectDir = C:\Users\palla\FacturacionTaller\FacturacionTaller\FacturaTallerMVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\avazquez\Desktop\FacturacionTaller\FacturacionTaller-1\FacturaTallerMVC
+build_property.MSBuildProjectDirectory = C:\Users\palla\FacturacionTaller\FacturacionTaller\FacturaTallerMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Clientes/Create.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Clientes/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Clientes/Delete.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Clientes/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Clientes/Details.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Clientes/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Clientes/Edit.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Clientes/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Clientes/Index.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Clientes/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Coches/Create.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Coches/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29jaGVzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Coches/Delete.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Coches/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29jaGVzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Coches/Details.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Coches/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29jaGVzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Coches/Edit.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Coches/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29jaGVzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Coches/Index.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Coches/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29jaGVzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Facturas/Create.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Facturas/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Facturas/Delete.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Facturas/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Facturas/Details.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Facturas/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Facturas/Edit.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Facturas/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Facturas/Index.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Facturas/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmFjdHVyYXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Home/Index.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Home/Privacy.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Recambios/Create.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Recambios/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjYW1iaW9zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Recambios/Delete.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Recambios/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjYW1iaW9zXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Recambios/Details.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Recambios/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjYW1iaW9zXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Recambios/Edit.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Recambios/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjYW1iaW9zXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Recambios/Index.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Recambios/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVjYW1iaW9zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Shared/Error.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/_ViewImports.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/_ViewStart.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/avazquez/Desktop/FacturacionTaller/FacturacionTaller-1/FacturaTallerMVC/Views/Shared/_Layout.cshtml]
+[C:/Users/palla/FacturacionTaller/FacturacionTaller/FacturaTallerMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-6oxrs3rhti
