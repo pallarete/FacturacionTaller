@@ -1,12 +1,12 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace FacturaTallerMVCTallerMVC.Models
+namespace FacturaTallerMVC.Models
 {
-    public class OrdenTrabajo
+    public class Factura
     {
         [Key]
-        public int IdOrden { get; set; }
+        public int IdFactura { get; set; }
 
         // Llaves Foráneas
         public int? ClienteId { get; set; } // Llave foránea
@@ -31,11 +31,9 @@ namespace FacturaTallerMVCTallerMVC.Models
         public int? TotalHoras { get; set; }
 
         // Total de La factura
-        public int? Pvp { get; set; }
+        public int Pvp { get; set; }
 
         // Fecha de la factura
         public DateTime Fecha { get; set; }
     }
-
-   
 }
