@@ -50,9 +50,18 @@ namespace FacturaTallerMVC.Controllers
         // GET: Facturas/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "IdCliente");
-            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Marca");
-            ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "IdRecambio");
+            // ViewData["ClienteId"] = new SelectList(_context.Clientes, "IdCliente", "Nombre");
+            ViewData["ClienteId"] = new SelectList(
+                   _context.Clientes.Select(c => new
+                   {
+                       IdCliente = c.IdCliente,
+                       NombreCompleto = c.Nombre + " " + c.Apellidos // Concatenamos nombre y apellidos
+                   }),
+                   "IdCliente",
+                   "NombreCompleto"
+               );
+            ViewData["CocheId"] = new SelectList(_context.Coches, "IdCoche", "Matricula");
+            ViewData["RecambioId"] = new SelectList(_context.Recambios, "IdRecambio", "Nombre");
             return View();
         }
 
@@ -65,6 +74,7 @@ namespace FacturaTallerMVC.Controllers
         {
             if (ModelState.IsValid)
             {
+                factura.Pvp = (int)(factura.Piezas + factura.TotalPiezas);
                 _context.Add(factura);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

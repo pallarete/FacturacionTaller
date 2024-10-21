@@ -25,7 +25,7 @@ D. dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design.
     "DefaultConnectionSqlite":"Data Source = TallerAppMVCDB.db",
     "DefaultConnectionSqlServer":"Server=localhost,1433:database=TallerAppMVCDB;TrustServerCertificate=true"
   },
-  9. Vamos a añadir los models que sera nuestra tablase de bases de datos
+  9. Vamos a añadir los models que seran nuestras tabla de bases de datos
 
   10. En el data context le decimos que cree las tablas a partir de los modelos declarados.
 
